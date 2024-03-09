@@ -11,15 +11,15 @@ Complete as many of the tasks below as you can. These are split into 3 levels of
 * **Advanced** - Slightly more technical tasks and problem solving
 * **Expert** - Tasks with a higher level of problem solving and architecture needed
 
-### 1. Filters Section (Standard)
+<!-- ### 1. Filters Section (Standard)
 
 The users page contains 3 buttons below the user listing - **Show All**, **Active Only** and **Non Active**. Show All has already been implemented. Implement the remaining buttons using the following logic:
 * Active Only – This should show only users where their `IsActive` property is set to `true`
-* Non Active – This should show only users where their `IsActive` property is set to `false`
+* Non Active – This should show only users where their `IsActive` property is set to `false` -->
 
-### 2. User Model Properties (Standard)
+<!-- ### 2. User Model Properties (Standard)
 
-Add a new property to the `User` class in the system called `DateOfBirth` which is to be used and displayed in relevant sections of the app.
+Add a new property to the `User` class in the system called `DateOfBirth` which is to be used and displayed in relevant sections of the app. -->
 
 ### 3. Actions Section (Standard)
 
