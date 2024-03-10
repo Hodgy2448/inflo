@@ -12,4 +12,11 @@ public interface IUserService
     /// <returns></returns>
     IEnumerable<User> FilterByActive(bool isActive);
     IEnumerable<User> GetAll();
+     /// <summary>
+    /// Create a new item
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
+    /// <param name="entity"></param>
+    /// <returns></returns>
+    User Create(User user);
 }

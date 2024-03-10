@@ -1,0 +1,32 @@
+@model UserManagement.Web.Models.Users.UserAddViewModel
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Add User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form asp-controller="Users" asp-action="AddUserAction" method="post">
+            <div class="mb-3">
+                <label asp-for="Forename" class="form-label">Forename</label>
+                <input asp-for="Forename" class="form-control" />
+                <span asp-validation-for="Forename" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Surname" class="form-label">Surname</label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="DateOfBirth" class="form-label">Date Of Birth</label>
+                <input type="text" class="form-control" id="DateOfBirth" name="DateOfBirth" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add User</button>
+        </form>
+    </div>
+</div>

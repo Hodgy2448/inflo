@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UserManagement.Models;
 using UserManagement.Services.Domain.Interfaces;
 using UserManagement.Web.Models.Users;
@@ -16,7 +17,7 @@ public class UsersController : Controller
     {
 
         IEnumerable<User> users;
-        
+
         if (filter)
         {
             users = _userService.FilterByActive(filterByActive);
@@ -44,18 +45,50 @@ public class UsersController : Controller
 
         return View(model);
 
-    // OR filter in controller below
+        /* OR filter in controller below */
 
-    // if(filterByActive){
-    //     items = items.Where(p => p.IsActive);
-    // }
+        // if(filterByActive){
+        //     items = items.Where(p => p.IsActive);
+        // }
 
-    // var model = new UserListViewModel
-    // {
-    //     FilterByActive = filterByActive,
-    //     Items = items.ToList()
-    // };
+        // var model = new UserListViewModel
+        // {
+        //     FilterByActive = filterByActive,
+        //     Items = items.ToList()
+        // };
 
-    // return View(model);
-}
+        // return View(model);
+
+    }
+    /* Create new user from _AddUserForm */
+    [ActionName("AddUser")]
+    public IActionResult AddUserView()
+    {
+        return PartialView("_AddUserForm");
+    }
+
+    [HttpPost, ActionName("AddUser")]
+    public IActionResult AddUserAction(UserListItemViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var newUser = new User
+            {
+                Id = 0,
+                Forename = model.Forename ?? string.Empty,
+                Surname = model.Surname ?? string.Empty,
+                Email = model.Email ?? string.Empty,
+                IsActive = true, // Set to Active due to using the form?
+                DateOfBirth = model.DateOfBirth ?? DateOnly.FromDateTime(DateTime.Now)
+            };
+
+            _userService.Create(newUser);
+
+            // Redirect to the list page or refresh the current page
+            return RedirectToAction("List", new { filter = false, filterByActive = true });
+        }
+
+        // If the model state is not valid, return to the form
+        return PartialView("_AddUserForm", model);
+    }
 }

@@ -39,7 +39,8 @@
                     </td>
                     <td>
                         <div class="dropdown">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="btnToggleActions">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false" id="btnToggleActions">
                                 Actions
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnToggleActions">
@@ -58,12 +59,13 @@
 <div>
     <div class="btn-group" role="group">
         <a asp-controller="Users" asp-action="List" asp-route-filter="false" class="btn btn-default">Show All</a>
-        <a asp-controller="Users" asp-action="List" asp-route-filter="true" asp-route-filterByActive="true" class="btn btn-default">Active Only</a>
-        <a asp-controller="Users" asp-action="List" asp-route-filter="true" asp-route-filterByActive="false" class="btn btn-default">Non-Active</a>
+        <a asp-controller="Users" asp-action="List" asp-route-filter="true" asp-route-filterByActive="true"
+            class="btn btn-default">Active Only</a>
+        <a asp-controller="Users" asp-action="List" asp-route-filter="true" asp-route-filterByActive="false"
+            class="btn btn-default">Non-Active</a>
     </div>
 
-    <a href="#" class="btn btn-primary float-end">
+    <a href="#" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addUserModal">
         Add User
     </a>
 </div>
-
